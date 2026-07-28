@@ -424,6 +424,7 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 .gradient-3 { background: linear-gradient(135deg, #ffb84c, #7a3d0d 120%); }
 .gradient-4 { background: linear-gradient(135deg, #d4372c, #5a0f0f 120%); }
 .gradient-5 { background: linear-gradient(135deg, #2ec4b6, #0a2f4a 120%); }
+.gradient-6 { background: linear-gradient(135deg, #7c5cff, #1a0f4a 120%); }
 
 .case-meta {
   display: flex;
@@ -591,6 +592,12 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   transition: color 0.3s var(--ease);
 }
 .contact-links a:hover { color: var(--accent); }
+
+.contact-location {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
 
 /* ---------- Footer ---------- */
 .footer {
