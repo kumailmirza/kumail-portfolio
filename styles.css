@@ -64,9 +64,9 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 .gate-logo {
   font-family: var(--ff-display);
   color: var(--red);
-  font-size: clamp(34px, 5vw, 52px);
-  letter-spacing: 2px;
-  padding: 22px var(--pad);
+  font-size: clamp(46px, 6vw, 68px);
+  letter-spacing: 0;
+  padding: 18px var(--pad);
   line-height: 1;
 }
 
@@ -125,7 +125,7 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 .nav-logo {
   font-family: var(--ff-display);
   color: var(--red);
-  font-size: 34px;
+  font-size: 44px;
   line-height: 1;
   letter-spacing: 2px;
 }
@@ -461,9 +461,9 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 .intro.out { opacity: 0; }
 .intro span {
   font-family: var(--ff-display);
-  font-size: clamp(110px, 26vw, 300px);
+  font-size: clamp(180px, 42vw, 420px);
   line-height: 1;
-  letter-spacing: 4px;
+  letter-spacing: 0;
   color: var(--red);
   opacity: 0;
 }
@@ -504,6 +504,42 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   .bar-val { text-align: right; display: flex; gap: 8px; align-items: baseline; }
   .bar-val strong { display: inline; }
 }
+
+/* ---------- Brand tiles & poster imagery ---------- */
+.brand-ghost {
+  position: absolute !important;
+  right: -14%; bottom: -22%;
+  width: 66%; height: auto;
+  color: #fff;
+  opacity: .14;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+.card-case .brand-ghost { right: -8%; top: -14%; bottom: auto; width: 46%; opacity: .16; }
+.card-link .brand-ghost { right: -6%; bottom: -26%; width: 44%; }
+.brand-ghost-word { width: auto; right: -4%; font-weight: 800; font-size: 78px; letter-spacing: -3px; line-height: 1; bottom: -6%; }
+
+.card-brand { justify-content: flex-end; align-items: flex-start; gap: 0; color: var(--ink, #fff); }
+.card-brand::before { background: linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,0) 55%); }
+.card-brand.fx-glitch { background: #000; }
+.card-brand .brand-ghost { color: var(--ink, #fff); }
+.brand-logo {
+  position: absolute !important;
+  left: 16px; top: 16px;
+  width: clamp(44px, 4.4vw, 62px); height: auto;
+  color: var(--ink, #fff);
+}
+.fx-glitch .brand-logo { filter: drop-shadow(3px 3px 0 #fe2c55) drop-shadow(-3px -3px 0 #25f4ee); }
+.brand-word {
+  position: absolute !important;
+  left: 16px; top: 12px;
+  font-weight: 800; font-size: clamp(34px, 3.4vw, 48px); letter-spacing: -2px; line-height: 1.1;
+}
+.card-brand .card-tile-name { font-size: clamp(26px, 2.6vw, 36px); text-shadow: none; }
+.card-brand:hover { transform: scale(1.06); z-index: 10; box-shadow: 0 16px 40px rgba(0,0,0,.7); transition-delay: .1s; }
+
+.modal-logo { position: absolute; left: 0; top: 0; right: 0; bottom: 0; pointer-events: none; }
+.banner-logo { position: absolute; left: clamp(20px, 4vw, 40px); top: 24px; width: clamp(34px, 5vw, 52px); height: auto; color: #fff; opacity: .95; }
 
 /* ---------- Footer ---------- */
 .footer {
