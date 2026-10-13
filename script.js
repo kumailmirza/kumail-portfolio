@@ -508,10 +508,7 @@ document.addEventListener('keydown', (e) => {
 const gate = $('#gate');
 const app = $('#app');
 const GREETINGS = {
-  Kumail: 'Welcome back, Kumail',
-  Recruiter: 'Welcome, Recruiter',
-  Client: 'Welcome, Client',
-  Guest: 'Welcome, Guest',
+  'Kumail Ali Mirza': 'Welcome back, Kumail',
 };
 
 $$('.profile').forEach((btn) => {
