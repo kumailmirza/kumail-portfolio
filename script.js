@@ -43,28 +43,47 @@ const CASES = [
     ],
   },
   {
-    id: 'baby',
+    id: 'diapers',
     logo: 'meta',
-    big: '7.27x',
-    bigLabel: 'ROAS',
-    name: 'Baby Care & Toiletries',
-    headline: '7.27x ROAS Across a Full-Funnel Meta Strategy',
-    tag: 'E-Commerce · Meta Ads',
-    category: 'Paid Social · Full-Funnel Conversion',
+    logos: ['meta', 'tiktok', 'googleads'],
+    big: '10.6x',
+    bigLabel: 'ROAS on Meta',
+    name: 'Diapers & Baby Care',
+    headline: '10.6x ROAS on Meta Sales and 283M Impressions Across Meta & TikTok',
+    tag: 'FMCG · Meta, TikTok & Google',
+    category: 'Multi-Platform · Sales & Brand Awareness',
     year: '2026',
     grad: ['#ff5f6d', '#6b1030'],
     summary:
-      "Ran the Meta Ads program for an e-commerce retailer's baby care and toiletries product lines, pairing always-on awareness campaigns with sale-timed conversion pushes.",
+      "Ran paid media for a diapers and baby-care group from January to October 2026: sale-timed conversion campaigns on Meta, celebrity-led awareness on TikTok, and short-form video on YouTube, all feeding one brand.",
     metrics: [
-      ['7.27x', 'ROAS on conversion spend'],
-      ['6,683', 'Purchases driven'],
-      ['₨504', 'Cost per purchase'],
+      ['10.6x', 'ROAS on Meta sales spend'],
+      ['₨33.2M', 'Tracked purchase value'],
+      ['9,140', 'Purchases driven'],
+      ['₨344', 'Cost per purchase'],
+      ['283M', 'Impressions, Meta + TikTok'],
+      ['3.5M', 'YouTube views'],
+    ],
+    barsHeading: 'Meta sales leaderboard',
+    barsNote: 'ROAS by sales campaign (₨100K+ spend), January to October 2026',
+    bars: [
+      ['Jul · 25% offer', 18.5, '₨150.0K'],
+      ['Aug · Diaper sales (continued)', 14.1, '₨119.1K'],
+      ['May · Mother\u2019s Day offer', 14.1, '₨238.2K'],
+      ['Aug · Diaper sales', 13.8, '₨339.3K'],
+      ['Dec · Toiletries sales', 13.4, '₨134.7K'],
+      ['Jan · New Year offer', 10.9, '₨259.2K'],
+      ['Dec · Winter sale', 10.5, '₨344.2K'],
+      ['Jan · New Year & Winter (2nd brand)', 10.3, '₨372.8K'],
+      ['Dec · Winter sale (copy)', 10.1, '₨191.3K'],
+      ['Feb · Ramadan sale', 9.3, '₨228.5K'],
+      ['Sep–Oct · Sales (2nd brand)', 2.9, '₨141.0K'],
     ],
     episodes: [
-      ['Challenge', "This e-commerce retailer needed its baby care and toiletries product lines to convert consistently on Meta, without top-of-funnel awareness spend competing with the budget set aside for direct sales campaigns."],
-      ['Strategy', "Split the account into two deliberate tracks: a continuous awareness/reach layer (video, reel, and reach campaigns) that built qualified audience pools and retargeting lists, and a conversion layer timed to key retail moments — Winter Sale, 12.12, New Year Sale, Ramadan Sale, Mother's Day, and ongoing monthly offers."],
-      ['Execution', "Tested creative and audience variants across each sale window, built warm-audience lookalikes off the awareness layer to feed conversion campaigns, and kept an always-on page engagement program running in parallel to compound organic reach between sale cycles."],
-      ['Result', "Over the last 6 months, conversion campaigns spent ₨3.37M and returned ₨24.46M in tracked purchase value — a 7.27x ROAS at a ₨504 average cost per purchase — while the awareness layer delivered 83M+ in cumulative reach to keep the funnel fed. The most recent campaign, a July 25%-off promotion, is outperforming the historical average at 19.07x ROAS."],
+      ['Challenge', "This baby-care group sells diapers and toiletries under more than one brand, in a category that is won on both price and familiarity. It needed Meta, TikTok, and Google to work as one system: mass reach to build recall, and sale-timed pushes to turn that attention into purchases at a cost per purchase that could scale."],
+      ['Strategy', "Gave each platform a job. Meta carried both layers: large reach and video campaigns, and conversion campaigns timed to Winter Sale, New Year, Ramadan, Mother's Day, and a July 25% offer. TikTok handled celebrity-led awareness at scale plus a short conversion test. YouTube and Google added short-form video views and a Performance Max campaign. A September creator program added video views and engagement from seven creators."],
+      ['Execution', "Ran 26 sales campaigns on Meta, including promoted posts, and duplicated and re-launched winners such as the August diaper campaign. Reach campaigns ran in waves from December to February, split by audience segment. On TikTok, 5-second and 15-second celebrity videos ran city-targeted, with a December conversion test alongside. On Google, the 6-second video campaigns held view rates of 60.2% and 95.4% on YouTube in-stream."],
+      ['Result', "From January 1 to October 13, 2026, Meta sales campaigns spent ₨3.15M and returned ₨33.25M in tracked purchase value: a 10.6x ROAS across 9,140 purchases at ₨344 each, with a 1.75% link CTR and ₨14.5 CPC. The July 25% offer led at 18.5x. One regional push with no tracked purchases (₨113.6K) is included in that blended number. On awareness, nine Meta reach campaigns delivered 72.6M cumulative reach on ₨4.0M, and 13 video campaigns delivered 8.2M ThruPlays at about ₨0.40 each. Meta and TikTok together served 283M impressions (TikTok: 88.7M on ₨3.43M), TikTok's conversion test produced 935 conversions at ₨275 each, and the brand video campaigns on Google drew 3.5M YouTube views plus 135.7 contact conversions from Performance Max."],
     ],
   },
   {
@@ -411,7 +430,7 @@ let lastFocus = null;
 function openModal(item, fromEl) {
   $('#mBanner').style.setProperty('--g', gradient(item.grad));
   $('#mBigNum').textContent = item.big;
-  $('#mLogo').innerHTML = item.logo ? brandSvg(item.logo, 'banner-logo') : '';
+  $('#mLogo').innerHTML = (item.logos || (item.logo ? [item.logo] : [])).map((l) => brandSvg(l, 'banner-logo')).join('');
   $('#mKicker').textContent = item.kicker || item.tag;
   $('#mTitle').textContent = item.title || item.name;
   $('#mMeta').innerHTML = (item.meta || [item.year, item.category])
