@@ -3,6 +3,45 @@
    ========================================================= */
 const CASES = [
   {
+    id: 'apparel',
+    big: '17.5x',
+    bigLabel: 'ROAS',
+    name: 'Activewear & Fashion',
+    headline: '17.5x ROAS on ₨428K of Sales Spend, Peaking at 44.6x',
+    tag: 'E-Commerce · Meta Ads',
+    category: 'Paid Social · Sales, Reach & Engagement',
+    year: '2026',
+    grad: ['#d946ef', '#3b0a5c'],
+    summary:
+      'Ran the Meta Ads program for an e-commerce activewear and fashion brand from April to October 2026, layering always-on reach and engagement campaigns under sales pushes timed to each collection drop.',
+    metrics: [
+      ['17.5x', 'ROAS on sales spend'],
+      ['804', 'Purchases driven'],
+      ['₨533', 'Cost per purchase'],
+      ['₨7.49M', 'Tracked purchase value'],
+      ['44.6x', 'Best single campaign'],
+      ['846K', 'People reached'],
+    ],
+    barsHeading: 'Campaign leaderboard',
+    barsNote: 'ROAS by sales campaign (₨10K+ spend), April to October 2026',
+    bars: [
+      ['Sep · Story series · Carousel', 44.6, '₨18.3K'],
+      ['Sep · Story series · Video', 38.0, '₨36.2K'],
+      ['May · Summer · All products', 20.6, '₨16.6K'],
+      ['Jul–Aug · Creator collab (scaled)', 17.1, '₨67.4K'],
+      ['Apr–May · Catalog sales', 16.4, '₨53.9K'],
+      ['Jun · Summer Ready · Men & women', 14.2, '₨26.5K'],
+      ['Jul · Activewear haul', 11.7, '₨115.4K'],
+      ['Jun · Men’s sales · 2 weeks', 6.7, '₨29.5K'],
+    ],
+    episodes: [
+      ['Challenge', "This e-commerce clothing brand sells on a trend-and-season cycle: new collections, summer wear, men's and women's lines, and creator-led launches. It needed Meta to convert reliably across all of them while keeping cost per purchase low enough to keep scaling spend."],
+      ['Strategy', "Ran the account as a layered funnel. Reach, engagement, and profile-visit campaigns kept fresh audiences flowing in, while a sales layer was timed to each moment of the calendar: the spring new collection, summer, a creator collaboration, and a September storytelling series. A catalog campaign handled broad product retargeting between launches."],
+      ['Execution', "Launched 15 sales campaigns between April and October, changing creative and audience with each drop. Tested video against carousel on the same September concept, duplicated and scaled the creator-led campaign once it proved out, and used the men's-only two-week push, the weakest of the set at 6.7x, as a benchmark for where budget should go."],
+      ['Result', "From April 1 to October 13, 2026, the 15 sales campaigns spent ₨428K and returned ₨7.49M in tracked purchase value: a 17.5x ROAS across 804 purchases at ₨533 each, on a 2.15% link CTR and ₨28.55 CPC, with 4,561 add-to-carts and 1,470 checkouts started. The September video and carousel campaigns reached 38.0x and 44.6x. Alongside sales, ₨19.3K of reach campaigns reached 846K people at ₨22.8 per 1,000, and ₨34.8K of engagement and profile-visit campaigns delivered 15.1K post engagements and 3.3K profile visits."],
+    ],
+  },
+  {
     id: 'baby',
     big: '7.27x',
     bigLabel: 'ROAS',
@@ -223,16 +262,27 @@ function renderContact() {
 /* =========================================================
    Row arrows
    ========================================================= */
+let dragMoved = false;
+
 function initRows() {
   $$('.row-wrap').forEach((wrap) => {
     const scroller = $('.row-scroller', wrap);
     const left = $('.row-arrow.left', wrap);
     const right = $('.row-arrow.right', wrap);
+    const pager = document.createElement('div');
+    pager.className = 'pager';
+    pager.setAttribute('aria-hidden', 'true');
+    wrap.parentElement.appendChild(pager);
 
     const update = () => {
       const max = scroller.scrollWidth - scroller.clientWidth;
       left.hidden = scroller.scrollLeft < 8;
       right.hidden = scroller.scrollLeft > max - 8;
+      // Netflix-style page dashes
+      const pages = max > 8 ? Math.ceil(scroller.scrollWidth / scroller.clientWidth) : 0;
+      if (pager.children.length !== pages) pager.innerHTML = '<i></i>'.repeat(pages);
+      const cur = pages ? Math.min(pages - 1, Math.round((scroller.scrollLeft / max) * (pages - 1))) : 0;
+      [...pager.children].forEach((d, i) => d.classList.toggle('on', i === cur));
     };
     const page = (dir) => scroller.scrollBy({ left: dir * scroller.clientWidth * 0.85, behavior: reduceMotion ? 'auto' : 'smooth' });
 
@@ -240,12 +290,75 @@ function initRows() {
     right.addEventListener('click', () => page(1));
     scroller.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
+
+    // Click-and-drag scrolling with the mouse (touch already scrolls natively)
+    let down = false, startX = 0, startLeft = 0;
+    scroller.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      down = true; dragMoved = false; startX = e.clientX; startLeft = scroller.scrollLeft;
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!down) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 6) { dragMoved = true; scroller.classList.add('dragging'); }
+      if (dragMoved) scroller.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', () => {
+      if (!down) return;
+      down = false;
+      scroller.classList.remove('dragging');
+      setTimeout(() => { dragMoved = false; }, 0);
+    });
+
     update();
-    // Re-evaluate once the dashboard is visible (sizes are 0 while hidden).
-    wrap._update = update;
+    wrap._update = update; // re-run once the dashboard is visible (sizes are 0 while hidden)
   });
 }
 const refreshRows = () => $$('.row-wrap').forEach((w) => w._update && w._update());
+
+/* Scroll-triggered reveal: rows rise in and their cards stagger left to right */
+function initReveal() {
+  const rows = $$('.row');
+  if (reduceMotion || !('IntersectionObserver' in window)) { rows.forEach((r) => r.classList.add('seen')); return; }
+  $$('.row-scroller').forEach((sc) => [...sc.children].forEach((c, i) => c.style.setProperty('--i', i)));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('seen');
+      $$('.card-stat .card-big', e.target).forEach(countUp);
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.12 });
+  rows.forEach((r) => { r.classList.add('reveal'); io.observe(r); });
+}
+
+function countUp(el) {
+  const raw = el.textContent;
+  const m = raw.match(/^([^\d]*)([\d.]+)(.*)$/);
+  if (!m || reduceMotion) return;
+  const [, pre, num, post] = m;
+  const target = parseFloat(num);
+  const dec = (num.split('.')[1] || '').length;
+  const t0 = performance.now();
+  const tick = (now) => {
+    const p = Math.min((now - t0) / 1200, 1);
+    el.textContent = pre + (target * (1 - Math.pow(1 - p, 3))).toFixed(dec) + post;
+    if (p < 1) requestAnimationFrame(tick); else el.textContent = raw;
+  };
+  requestAnimationFrame(tick);
+}
+
+/* Hero parallax + fade as you scroll down */
+const heroArt = $('.hero-art');
+const heroContent = $('.hero-content');
+function heroScroll() {
+  if (reduceMotion) return;
+  const y = Math.min(window.scrollY, window.innerHeight);
+  heroArt.style.transform = `translate3d(0, ${y * 0.35}px, 0) scale(${1 + y * 0.0003})`;
+  heroContent.style.transform = `translate3d(0, ${y * 0.12}px, 0)`;
+  heroContent.style.opacity = String(Math.max(0, 1 - y / (window.innerHeight * 0.4)));
+}
+window.addEventListener('scroll', heroScroll, { passive: true });
 
 /* =========================================================
    Modal
@@ -253,18 +366,31 @@ const refreshRows = () => $$('.row-wrap').forEach((w) => w._update && w._update(
 const modal = $('#modal');
 let lastFocus = null;
 
-function openModal(item) {
+function openModal(item, fromEl) {
   $('#mBanner').style.setProperty('--g', gradient(item.grad));
   $('#mBigNum').textContent = item.big;
   $('#mKicker').textContent = item.kicker || item.tag;
   $('#mTitle').textContent = item.title || item.name;
-  $('#mMeta').innerHTML = (item.meta || [item.year, item.category, item.tag])
+  $('#mMeta').innerHTML = (item.meta || [item.year, item.category])
     .map((m, i) => (i === 0 && !item.meta ? `<b>${esc(m)}</b>` : `<span>${esc(m)}</span>`))
     .join('');
   $('#mSummary').textContent = item.summary;
   $('#mSide').innerHTML = item.metrics
     .map(([v, l]) => `<div class="m-stat"><strong>${esc(v)}</strong><span>${esc(l)}</span></div>`)
     .join('');
+  const barsWrap = $('#mBarsWrap');
+  barsWrap.hidden = !item.bars;
+  if (item.bars) {
+    const max = Math.max(...item.bars.map((b) => b[1]));
+    $('#mBarsHeading').textContent = item.barsHeading;
+    $('#mBarsNote').textContent = item.barsNote;
+    $('#mBars').innerHTML = item.bars.map(([label, v, spend], i) => `
+      <li style="--w:${(v / max * 100).toFixed(1)}%; --i:${i}">
+        <span class="bar-label">${esc(label)}</span>
+        <span class="bar-track"><span class="bar-fill"></span></span>
+        <span class="bar-val"><strong>${v.toFixed(1)}x</strong><em>${esc(spend)}</em></span>
+      </li>`).join('');
+  }
   $('#mEpHeading').textContent = item.heading || 'The Story';
   $('#mEpisodes').innerHTML = item.episodes
     .map(([t, p], i) => `
@@ -277,6 +403,17 @@ function openModal(item) {
   modal.hidden = false;
   document.body.classList.add('modal-open');
   $('#modalCard').scrollTop = 0;
+  const mc = $('#modalCard');
+  if (fromEl && !reduceMotion) {
+    // Zoom out of the card that was clicked, like Netflix's expanding tile.
+    const r = fromEl.getBoundingClientRect();
+    const m = mc.getBoundingClientRect();
+    mc.style.transformOrigin = `${r.left + r.width / 2 - m.left}px ${r.top + r.height / 2 - m.top}px`;
+    mc.style.setProperty('--from', String(Math.min(0.5, r.width / m.width)));
+  } else {
+    mc.style.transformOrigin = '50% 30%';
+    mc.style.setProperty('--from', '0.94');
+  }
   requestAnimationFrame(() => {
     modal.classList.add('show');
     $('.modal-close').focus();
@@ -336,21 +473,35 @@ function enter(btn) {
   gate.classList.add('leaving');
   btn.classList.add('chosen');
 
-  const delay = reduceMotion ? 0 : 700;
-  setTimeout(() => {
+  const reveal = () => {
     document.body.classList.remove('is-gate');
     gate.hidden = true;
     app.removeAttribute('aria-hidden');
     window.scrollTo(0, 0);
     app.classList.add('in');
     refreshRows();
+    initReveal();
+    heroScroll();
     $('#playFeatured').focus({ preventScroll: true });
-  }, delay);
+  };
+  if (reduceMotion) { reveal(); return; }
+  // Profile zooms, then the KAM logo sting plays, then the dashboard fades in.
+  setTimeout(() => {
+    const intro = $('#intro');
+    intro.hidden = false;
+    requestAnimationFrame(() => intro.classList.add('play'));
+    setTimeout(() => {
+      reveal();
+      intro.classList.add('out');
+      setTimeout(() => { intro.hidden = true; intro.classList.remove('play', 'out'); }, 600);
+    }, 1500);
+  }, 600);
 }
 
 $('#switchProfile').addEventListener('click', () => {
   closeModal();
   app.classList.remove('in');
+  $$('.row').forEach((r) => r.classList.remove('seen'));
   app.setAttribute('aria-hidden', 'true');
   gate.hidden = false;
   gate.classList.remove('leaving');
@@ -375,10 +526,10 @@ $('#year').textContent = new Date().getFullYear();
 
 document.addEventListener('click', (e) => {
   const card = e.target.closest('[data-case]');
-  if (card) openModal(CASES.find((c) => c.id === card.dataset.case));
+  if (card && !dragMoved) openModal(CASES.find((c) => c.id === card.dataset.case), card);
 });
-$('#playFeatured').addEventListener('click', () => openModal(CASES.find((c) => c.id === 'food')));
-$('#openAbout').addEventListener('click', () => openModal(ABOUT));
+$('#playFeatured').addEventListener('click', (e) => openModal(CASES.find((c) => c.id === 'apparel'), e.currentTarget));
+$('#openAbout').addEventListener('click', (e) => openModal(ABOUT, e.currentTarget));
 
 /* Smooth scroll with nav offset */
 $$('[data-scroll]').forEach((a) => {
