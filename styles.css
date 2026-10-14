@@ -542,6 +542,34 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 .faq-item h4 { font-size: 16px; margin-bottom: 4px; }
 .faq-item p { color: var(--doc-dim); max-width: 68ch; }
 
+/* Résumé document sections */
+.resume-contact { margin-top: 14px; font-size: 15px; color: var(--doc-dim); }
+.resume-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.resume a.dl { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 6px; background: var(--doc-ink); color: #fff; text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.resume a.dl::before { content: '↓'; font-weight: 700; }
+.resume a.dl:hover, .resume a.dl:focus-visible { background: var(--doc-accent); }
+.resume a.dl-alt { background: transparent; color: var(--doc-ink); box-shadow: inset 0 0 0 1.5px var(--doc-ink); }
+.resume a.dl-alt:hover, .resume a.dl-alt:focus-visible { background: var(--doc-ink); color: #fff; }
+.comp-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 8px 36px; font-size: 15px; }
+.comp-list li { position: relative; padding-left: 16px; }
+.comp-list li::before { content: ''; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; background: var(--doc-accent); border-radius: 1px; }
+.exp-group { font-size: 13px; font-weight: 700; font-style: italic; color: var(--doc-dim); margin: 0 0 14px; }
+.exp-group small { font-weight: 500; font-size: 12.5px; }
+.exp-group:not(:first-of-type) { margin-top: 34px; }
+.exp { padding: 0 0 22px; }
+.exp-head { display: flex; justify-content: space-between; align-items: baseline; gap: 6px 16px; flex-wrap: wrap; }
+.exp-head h5 { font-size: 16.5px; font-weight: 700; }
+.exp-dates { font-size: 13.5px; color: var(--doc-dim); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.exp-co { font-size: 14.5px; font-weight: 600; color: var(--doc-accent); margin: 2px 0 8px; }
+.exp-list { display: grid; gap: 6px; font-size: 14.5px; line-height: 1.6; max-width: 76ch; }
+.exp-list li { position: relative; padding-left: 16px; }
+.exp-list li::before { content: ''; position: absolute; left: 0; top: .66em; width: 5px; height: 5px; background: var(--doc-dim); border-radius: 50%; }
+.kv { display: grid; gap: 10px; font-size: 15px; }
+.kv > div { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 4px 20px; }
+.kv dt { font-weight: 700; }
+.kv dd { color: var(--doc-dim); }
+@media (max-width: 600px) { .kv > div { grid-template-columns: 1fr; } }
+
 /* Case article: used in the résumé view and inside the pop-up */
 .case { display: grid; gap: 28px; color: var(--doc-ink); min-width: 0; }
 .case > * { min-width: 0; }

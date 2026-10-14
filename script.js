@@ -55,6 +55,7 @@ const TOOLS = [
 ];
 
 const CONTACT = [
+  { label: 'Résumé', value: 'Download PDF ↓', href: 'Kumail_Ali_Mirza_Resume.pdf', grad: ['#10b981', '#06362b'], download: true },
   { label: 'Email', value: 'kum.mirza91@gmail.com', href: 'mailto:kum.mirza91@gmail.com', grad: ['#e50914', '#3a0408'] },
   { label: 'LinkedIn', value: 'kumailalimirza ↗', href: 'https://www.linkedin.com/in/kumailalimirza', grad: ['#0a66c2', '#06284d'], external: true, icon: 'linkedin' },
 ];
@@ -138,7 +139,7 @@ function renderContact() {
       <span class="card-tile-kicker">${esc(c.label)}</span>
       <span class="card-tile-name small">${esc(c.value)}</span>`;
     return c.href
-      ? `<a class="card card-tile card-link" style="--g:${gradient(c.grad)}" href="${c.href}"${c.external ? ' target="_blank" rel="noopener"' : ''}>${inner}</a>`
+      ? `<a class="card card-tile card-link" style="--g:${gradient(c.grad)}" href="${c.href}"${c.external ? ' target="_blank" rel="noopener"' : ''}${c.download ? ' download' : ''}>${inner}</a>`
       : `<div class="card card-tile" style="--g:${gradient(c.grad)}">${inner}</div>`;
   }).join('');
 }
