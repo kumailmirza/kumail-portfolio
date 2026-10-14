@@ -232,16 +232,14 @@ const TOOLS = [
 
 const CONTACT = [
   { label: 'Email', value: 'kum.mirza91@gmail.com', href: 'mailto:kum.mirza91@gmail.com', grad: ['#e50914', '#3a0408'] },
-  { label: 'Phone', value: '+92 321 3222110', href: 'tel:+923213222110', grad: ['#10b981', '#06362b'] },
   { label: 'LinkedIn', value: 'kumailalimirza ↗', href: 'https://www.linkedin.com/in/kumailalimirza', grad: ['#0a66c2', '#06284d'], external: true, icon: 'linkedin' },
-  { label: 'Location', value: 'Karachi, Pakistan', grad: ['#8b5cf6', '#25104d'] },
 ];
 
 const ABOUT = {
   big: '12+',
   kicker: 'Original Series',
   title: 'The Kumail Ali Mirza Story',
-  meta: ['Performance Marketing Manager', 'Karachi, Pakistan', '12+ yrs'],
+  meta: ['Performance Marketing Manager', 'Paid Media & Growth', '12+ yrs'],
   summary:
     'Performance first. Creative always. Data never optional.',
   metrics: [
