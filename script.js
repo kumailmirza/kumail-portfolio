@@ -384,11 +384,6 @@ function enter(btn, jumpTo) {
   }, 600);
 }
 
-$('#gateResume').addEventListener('click', (e) => {
-  e.preventDefault();
-  enter($('.profile'), '#resume');
-});
-
 $('#switchProfile').addEventListener('click', () => {
   closeModal();
   app.classList.remove('in');
