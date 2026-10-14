@@ -134,67 +134,6 @@
           }
         }
       ]
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What does Kumail Ali Mirza do?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Kumail Ali Mirza is a Performance Marketing Manager who plans, buys and optimises paid media on Meta, Google, TikTok, LinkedIn and Snapchat for e-commerce, FMCG, automotive, fitness and apparel, and B2B brands."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What results has Kumail achieved with paid media?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "In 2026 case studies, Kumail delivered a 17.5x ROAS on Meta for an activewear e-commerce brand (₨428K of sales spend returned ₨7.49M in tracked purchase value), 16.0x for a rice and staples brand, and 10.6x on Meta sales for a diapers brand that also served 283M impressions across Meta and TikTok. Career figures are a 35% ROAS improvement, 25–30% CPC reduction, up to 40% higher CTR and 25,000+ conversions delivered."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much experience does Kumail have?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Kumail has 12+ years in digital and social media marketing, including 4+ years of hands-on performance marketing and paid media buying, and has built and led social media and performance marketing teams."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which ad platforms and tools does Kumail work with?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Kumail works with Meta Ads Manager, Google Ads, TikTok Ads Manager, LinkedIn Campaign Manager and Snapchat Ads, and measures with Google Analytics 4, Google Tag Manager, Meta Pixel, Looker Studio, Google Search Console, SEMrush and Ahrefs."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much ad spend does Kumail manage?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Kumail currently manages PKR 10M+ in monthly ad spend across e-commerce, FMCG, automotive, fitness and apparel, and B2B campaigns."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does Kumail structure a paid media strategy?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Kumail builds a full funnel. Reach and video campaigns bring in new audiences, engagement and profile-visit campaigns warm them, and conversion campaigns timed to seasonal and sale moments turn them into purchases. Each stage is reported against its own KPI."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How can I contact Kumail?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Kumail can be reached by email at kum.mirza91@gmail.com or through LinkedIn at linkedin.com/in/kumailalimirza."
-          }
-        }
-      ]
     }
   ]
 }
@@ -235,7 +174,6 @@
         <a href="#numbers" data-scroll>Numbers</a>
         <a href="#skills" data-scroll>Skills</a>
         <a href="#contact" data-scroll>Contact</a>
-        <a href="#portfolio" data-scroll>Portfolio</a>
       </nav>
     </div>
     <button class="nav-profile" id="switchProfile" aria-label="Switch profile">
@@ -334,21 +272,13 @@
     </div>
 
     <!--
-      PORTFOLIO VIEW. This is the single source of truth for the profile and every case study.
-      The Netflix cards and pop-ups above are built from the <article class="case"> blocks below,
-      and search engines and AI crawlers read this plain HTML directly.
+      CONTENT STORE. This is the single source of truth for the About text and every case study.
+      It is not shown on the page: the Netflix cards and pop-ups above are built from the
+      <article class="case"> blocks below, and search engines and AI crawlers read this plain HTML.
       To add a case study, copy an <article> block, edit the text, and give it a unique id.
     -->
-    <section class="resume" id="portfolio" aria-labelledby="resumeTitle">
-      <div class="resume-inner">
-
-        <header class="resume-head">
-          <p class="resume-eyebrow">Portfolio</p>
-          <h2 id="resumeTitle">Kumail Ali Mirza</h2>
-          <p class="resume-sub">Performance Marketing Manager · Paid Media &amp; Growth Specialist</p>
-        </header>
-
-        <div class="resume-block" id="about">
+    <div id="contentStore" hidden>
+      <h2>Kumail Ali Mirza: Performance Marketing Manager</h2>
 <article class="case" id="profile" data-grad="#e50914,#2a0306" data-logos="" data-big="12+" data-card="Kumail Ali Mirza">
   <header class="case-head">
     <p class="case-kicker">About</p>
@@ -385,12 +315,9 @@
     </ul>
   </section>
 </article>
-        </div>
 
-        <div class="resume-block" id="case-studies">
-          <h3 class="resume-h">Selected case studies</h3>
-          <p class="resume-intro">Each case study leads with the result, then shows the strategy that produced it. All figures come from platform exports for the stated period; client names are withheld.</p>
-          <div class="case-list" id="caseList">
+      <h2>Selected paid media case studies</h2>
+      <div id="caseList">
 <article class="case" id="case-apparel" data-grad="#d946ef,#3b0a5c" data-logos="meta" data-big="17.5x" data-card="Activewear &amp; Fashion" data-biglabel="ROAS" data-hover="17.5x ROAS on ₨428K of Sales Spend, Peaking at 44.6x">
   <header class="case-head">
     <p class="case-kicker">E-Commerce · Meta Ads · 2026</p>
@@ -687,50 +614,8 @@
     </ul>
   </section>
 </article>
-          </div>
-        </div>
-
-        <div class="resume-block" id="faq">
-          <h3 class="resume-h">Frequently asked questions</h3>
-          <div class="faq">
-      <div class="faq-item">
-        <h4>What does Kumail Ali Mirza do?</h4>
-        <p>Kumail Ali Mirza is a Performance Marketing Manager who plans, buys and optimises paid media on Meta, Google, TikTok, LinkedIn and Snapchat for e-commerce, FMCG, automotive, fitness and apparel, and B2B brands.</p>
       </div>
-      <div class="faq-item">
-        <h4>What results has Kumail achieved with paid media?</h4>
-        <p>In 2026 case studies, Kumail delivered a 17.5x ROAS on Meta for an activewear e-commerce brand (₨428K of sales spend returned ₨7.49M in tracked purchase value), 16.0x for a rice and staples brand, and 10.6x on Meta sales for a diapers brand that also served 283M impressions across Meta and TikTok. Career figures are a 35% ROAS improvement, 25–30% CPC reduction, up to 40% higher CTR and 25,000+ conversions delivered.</p>
-      </div>
-      <div class="faq-item">
-        <h4>How much experience does Kumail have?</h4>
-        <p>Kumail has 12+ years in digital and social media marketing, including 4+ years of hands-on performance marketing and paid media buying, and has built and led social media and performance marketing teams.</p>
-      </div>
-      <div class="faq-item">
-        <h4>Which ad platforms and tools does Kumail work with?</h4>
-        <p>Kumail works with Meta Ads Manager, Google Ads, TikTok Ads Manager, LinkedIn Campaign Manager and Snapchat Ads, and measures with Google Analytics 4, Google Tag Manager, Meta Pixel, Looker Studio, Google Search Console, SEMrush and Ahrefs.</p>
-      </div>
-      <div class="faq-item">
-        <h4>How much ad spend does Kumail manage?</h4>
-        <p>Kumail currently manages PKR 10M+ in monthly ad spend across e-commerce, FMCG, automotive, fitness and apparel, and B2B campaigns.</p>
-      </div>
-      <div class="faq-item">
-        <h4>How does Kumail structure a paid media strategy?</h4>
-        <p>Kumail builds a full funnel. Reach and video campaigns bring in new audiences, engagement and profile-visit campaigns warm them, and conversion campaigns timed to seasonal and sale moments turn them into purchases. Each stage is reported against its own KPI.</p>
-      </div>
-      <div class="faq-item">
-        <h4>How can I contact Kumail?</h4>
-        <p>Kumail can be reached by email at kum.mirza91@gmail.com or through LinkedIn at linkedin.com/in/kumailalimirza.</p>
-      </div>
-          </div>
-        </div>
-
-        <div class="resume-block" id="resume-contact">
-          <h3 class="resume-h">Contact</h3>
-          <p>Email: <a href="mailto:kum.mirza91@gmail.com">kum.mirza91@gmail.com</a> · LinkedIn: <a href="https://www.linkedin.com/in/kumailalimirza" rel="me noopener" target="_blank">linkedin.com/in/kumailalimirza</a></p>
-        </div>
-
-      </div>
-    </section>
+    </div>
   </main>
 
   <footer class="footer">

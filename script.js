@@ -438,6 +438,7 @@ function onScroll() {
   const probe = window.scrollY + 140;
   let current = 0;
   sections.forEach((s, i) => { if (s && s.getBoundingClientRect().top + window.scrollY <= probe) current = i; });
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = links.length - 1;
   links.forEach((a, i) => a.classList.toggle('active', i === current));
 }
 window.addEventListener('scroll', onScroll, { passive: true });
