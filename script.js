@@ -1,182 +1,6 @@
 /* =========================================================
-   Data
+   Data (case studies and profile live in index.html as <article class="case"> blocks)
    ========================================================= */
-const CASES = [
-  {
-    id: 'apparel',
-    logo: 'meta',
-    big: '17.5x',
-    bigLabel: 'ROAS',
-    name: 'Activewear & Fashion',
-    headline: '17.5x ROAS on ₨428K of Sales Spend, Peaking at 44.6x',
-    tag: 'E-Commerce · Meta Ads',
-    category: 'Paid Social · Sales, Reach & Engagement',
-    year: '2026',
-    grad: ['#d946ef', '#3b0a5c'],
-    summary:
-      'Ran the Meta Ads program for an e-commerce activewear and fashion brand from April to October 2026, layering always-on reach and engagement campaigns under sales pushes timed to each collection drop.',
-    metrics: [
-      ['17.5x', 'ROAS on sales spend'],
-      ['804', 'Purchases driven'],
-      ['₨533', 'Cost per purchase'],
-      ['₨7.49M', 'Tracked purchase value'],
-      ['44.6x', 'Best single campaign'],
-      ['846K', 'People reached'],
-    ],
-    barsHeading: 'Campaign leaderboard',
-    barsNote: 'ROAS by sales campaign (₨10K+ spend), April to October 2026',
-    bars: [
-      ['Sep · Story series · Carousel', 44.6, '₨18.3K'],
-      ['Sep · Story series · Video', 38.0, '₨36.2K'],
-      ['May · Summer · All products', 20.6, '₨16.6K'],
-      ['Jul–Aug · Creator collab (scaled)', 17.1, '₨67.4K'],
-      ['Apr–May · Catalog sales', 16.4, '₨53.9K'],
-      ['Jun · Summer Ready · Men & women', 14.2, '₨26.5K'],
-      ['Jul · Activewear haul', 11.7, '₨115.4K'],
-      ['Jun · Men’s sales · 2 weeks', 6.7, '₨29.5K'],
-    ],
-    episodes: [
-      ['Challenge', "This e-commerce clothing brand sells on a trend-and-season cycle: new collections, summer wear, men's and women's lines, and creator-led launches. It needed Meta to convert reliably across all of them while keeping cost per purchase low enough to keep scaling spend."],
-      ['Strategy', "Ran the account as a layered funnel. Reach, engagement, and profile-visit campaigns kept fresh audiences flowing in, while a sales layer was timed to each moment of the calendar: the spring new collection, summer, a creator collaboration, and a September storytelling series. A catalog campaign handled broad product retargeting between launches."],
-      ['Execution', "Launched 15 sales campaigns between April and October, changing creative and audience with each drop. Tested video against carousel on the same September concept, duplicated and scaled the creator-led campaign once it proved out, and used the men's-only two-week push, the weakest of the set at 6.7x, as a benchmark for where budget should go."],
-      ['Result', "From April 1 to October 13, 2026, the 15 sales campaigns spent ₨428K and returned ₨7.49M in tracked purchase value: a 17.5x ROAS across 804 purchases at ₨533 each, on a 2.15% link CTR and ₨28.55 CPC, with 4,561 add-to-carts and 1,470 checkouts started. The September video and carousel campaigns reached 38.0x and 44.6x. Alongside sales, ₨19.3K of reach campaigns reached 846K people at ₨22.8 per 1,000, and ₨34.8K of engagement and profile-visit campaigns delivered 15.1K post engagements and 3.3K profile visits."],
-    ],
-  },
-  {
-    id: 'diapers',
-    logo: 'meta',
-    logos: ['meta', 'tiktok', 'googleads'],
-    big: '10.6x',
-    bigLabel: 'ROAS on Meta',
-    name: 'Diapers & Baby Care',
-    headline: '10.6x ROAS on Meta Sales and 283M Impressions Across Meta & TikTok',
-    tag: 'FMCG · Meta, TikTok & Google',
-    category: 'Multi-Platform · Sales & Brand Awareness',
-    year: '2026',
-    grad: ['#ff5f6d', '#6b1030'],
-    summary:
-      "Ran paid media for a diapers and baby-care group from January to October 2026: sale-timed conversion campaigns on Meta, celebrity-led awareness on TikTok, and short-form video on YouTube, all feeding one brand.",
-    metrics: [
-      ['10.6x', 'ROAS on Meta sales spend'],
-      ['₨33.2M', 'Tracked purchase value'],
-      ['9,140', 'Purchases driven'],
-      ['₨344', 'Cost per purchase'],
-      ['283M', 'Impressions, Meta + TikTok'],
-      ['3.5M', 'YouTube views'],
-    ],
-    barsHeading: 'Meta sales leaderboard',
-    barsNote: 'ROAS by sales campaign (₨100K+ spend), January to October 2026',
-    bars: [
-      ['Jul · 25% offer', 18.5, '₨150.0K'],
-      ['Aug · Diaper sales (continued)', 14.1, '₨119.1K'],
-      ['May · Mother\u2019s Day offer', 14.1, '₨238.2K'],
-      ['Aug · Diaper sales', 13.8, '₨339.3K'],
-      ['Dec · Toiletries sales', 13.4, '₨134.7K'],
-      ['Jan · New Year offer', 10.9, '₨259.2K'],
-      ['Dec · Winter sale', 10.5, '₨344.2K'],
-      ['Jan · New Year & Winter (2nd brand)', 10.3, '₨372.8K'],
-      ['Dec · Winter sale (copy)', 10.1, '₨191.3K'],
-      ['Feb · Ramadan sale', 9.3, '₨228.5K'],
-      ['Sep–Oct · Sales (2nd brand)', 2.9, '₨141.0K'],
-    ],
-    episodes: [
-      ['Challenge', "This baby-care group sells diapers and toiletries under more than one brand, in a category that is won on both price and familiarity. It needed Meta, TikTok, and Google to work as one system: mass reach to build recall, and sale-timed pushes to turn that attention into purchases at a cost per purchase that could scale."],
-      ['Strategy', "Gave each platform a job. Meta carried both layers: large reach and video campaigns, and conversion campaigns timed to Winter Sale, New Year, Ramadan, Mother's Day, and a July 25% offer. TikTok handled celebrity-led awareness at scale plus a short conversion test. YouTube and Google added short-form video views and a Performance Max campaign. A September creator program added video views and engagement from seven creators."],
-      ['Execution', "Ran 26 sales campaigns on Meta, including promoted posts, and duplicated and re-launched winners such as the August diaper campaign. Reach campaigns ran in waves from December to February, split by audience segment. On TikTok, 5-second and 15-second celebrity videos ran city-targeted, with a December conversion test alongside. On Google, the 6-second video campaigns held view rates of 60.2% and 95.4% on YouTube in-stream."],
-      ['Result', "From January 1 to October 13, 2026, Meta sales campaigns spent ₨3.15M and returned ₨33.25M in tracked purchase value: a 10.6x ROAS across 9,140 purchases at ₨344 each, with a 1.75% link CTR and ₨14.5 CPC. The July 25% offer led at 18.5x. One regional push with no tracked purchases (₨113.6K) is included in that blended number. On awareness, nine Meta reach campaigns delivered 72.6M cumulative reach on ₨4.0M, and 13 video campaigns delivered 8.2M ThruPlays at about ₨0.40 each. Meta and TikTok together served 283M impressions (TikTok: 88.7M on ₨3.43M), TikTok's conversion test produced 935 conversions at ₨275 each, and the brand video campaigns on Google drew 3.5M YouTube views plus 135.7 contact conversions from Performance Max."],
-    ],
-  },
-  {
-    id: 'food',
-    logo: 'meta',
-    big: '16.0x',
-    bigLabel: 'ROAS',
-    name: 'Rice & Staple Foods',
-    headline: '16.0x ROAS Across Seven Sale Campaigns, Peaking at 40.1x on Eid',
-    tag: 'FMCG · Meta Ads',
-    category: 'Paid Social · Seasonal Conversion',
-    year: '2026',
-    grad: ['#ff9d2e', '#7a2a05'],
-    summary:
-      'Ran Meta conversion campaigns for an FMCG rice and staples brand, timing discount pushes to Ramadan, Eid, and mid-year sale moments while keeping the audience warm with recipe content in between.',
-    metrics: [
-      ['16.0x', 'ROAS on sales spend'],
-      ['₨8.85M', 'Tracked purchase value'],
-      ['1,147', 'Purchases driven'],
-      ['₨483', 'Cost per purchase'],
-      ['40.1x', 'Best campaign (Eid)'],
-      ['3.2M', 'Impressions'],
-    ],
-    barsHeading: 'Campaign leaderboard',
-    barsNote: 'ROAS by sales campaign, reporting window January to October 2026',
-    bars: [
-      ['Mar · Eid Feast discount', 40.1, '₨32.5K'],
-      ['Feb · Ramadan discount', 20.8, '₨54.9K'],
-      ['Oct · Rice sales', 16.2, '₨17.8K'],
-      ['May · Eid Feast saving', 14.9, '₨36.9K'],
-      ['Jul \u201925 · Conversion (copy)', 14.7, '₨59.7K'],
-      ['Dec \u201925 · Conversion', 14.2, '₨188.8K'],
-      ['Jul · Win Fest · Flour', 12.2, '₨163.7K'],
-    ],
-    episodes: [
-      ['Challenge', "This FMCG rice and staples brand sells in a price-sensitive grocery category where promotions drive most of the volume. It needed Meta to convert consistently across the year, not just in one-off bursts, at a cost per purchase that stayed sustainable as spend grew."],
-      ['Strategy', "Anchored the media calendar around the moments when Pakistani households buy most: Ramadan, two Eid windows, a year-end sale, and a mid-year Win Fest. Dedicated discount conversion campaigns were timed to each, with recipe-style posts and light awareness pushes keeping the brand warm in between."],
-      ['Execution', "Ran seven conversion campaigns, each rebuilt for its sale window, and kept an always-on rice sales campaign live into October. Between sales, three recipe and festive posts were boosted for engagement, and two awareness pushes ran around fair-price shops and Independence Day."],
-      ['Result', "Across the reporting window, the seven conversion campaigns spent ₨554K and returned ₨8.85M in tracked purchase value: a 16.0x ROAS across 1,147 purchases at ₨483 each, with a 1.15% link CTR and ₨23.7 CPC, 3,571 add-to-carts and 1,689 checkouts started. The Eid Feast discount reached 40.1x on ₨32.5K, and the weakest campaign, the mid-year flour push, still returned 12.2x on the largest budget. The engagement boosts drew 112K post engagements at about ₨0.15 each, and the two awareness pushes reached 452K people at ₨32.9 per 1,000."],
-    ],
-  },
-  {
-    id: 'lighting',
-    logo: 'meta',
-    big: '10.4M',
-    bigLabel: 'Video views',
-    name: 'Electrical Goods & Lighting',
-    headline: '10.4M Video Views at ₨0.14 Each',
-    tag: 'Brand Awareness · Meta Ads',
-    category: 'Paid Social · Brand Awareness & Content',
-    year: '2026',
-    grad: ['#3b82f6', '#0b1745'],
-    summary:
-      'Ran a year-round brand content calendar for an electrical goods and home lighting brand on Meta, pairing a PSL cricket sponsorship series and Ramadan creative with always-on engagement content.',
-    metrics: [
-      ['10.4M', 'Video views'],
-      ['710K', 'Post engagements'],
-      ['₨49', 'Blended CPM'],
-    ],
-    episodes: [
-      ['Challenge', "This electrical goods brand needed a content engine that could deliver awareness and engagement at scale on Meta, without a purchase-tracked funnel to lean on for justifying spend."],
-      ['Strategy', "Built a year-round content calendar anchored to the moments this brand's audience actually pays attention to: a Ramadan dynamic video creative push, an official PSL (Pakistan Super League) cricket sponsorship content series, and always-on page engagement and awareness campaigns to fill the gaps in between."],
-      ['Execution', "Produced and tested multiple video variants for the Ramadan push across ThruPlay and 2-second view objectives in parallel, rolled out a dedicated PSL collab content series timed to the tournament, and kept lightweight page-post engagement and page-likes campaigns running continuously to sustain community growth."],
-      ['Result', "Over 6 months the account delivered 37.3M impressions and 16.5M reach on ₨1.84M in spend — including 10.4M video views at ₨0.14 each and 710K post engagements at ₨0.33 each, at a blended CPM of ₨49."],
-    ],
-  },
-  {
-    id: 'edtech',
-    logo: 'googleads',
-    big: '₨17.84',
-    bigLabel: 'Per install',
-    name: 'AI Knowledge App',
-    headline: 'Scaling to a 50K Install Cap at ₨17.84 Each',
-    tag: 'EdTech · Google Ads',
-    category: 'App Installs · Google Ads',
-    year: '2026',
-    grad: ['#8b5cf6', '#0e2547'],
-    summary:
-      'Running an ongoing Google App campaign for an AI-powered knowledge app on Android, scaling from a small test campaign into an always-on install-volume engine toward a 50,000-install cap.',
-    metrics: [
-      ['50K', 'Install cap (campaign live)'],
-      ['₨17.84', 'Cost per install'],
-      ['16%', 'Click-through rate'],
-    ],
-    episodes: [
-      ['Challenge', "This AI-powered knowledge app needed to drive install volume affordably on Android, without an existing user base or brand recognition to lean on, in a category where paid install costs can spiral quickly."],
-      ['Strategy', "Structured the account as a Google App campaign in two stages: a small testing campaign to validate creative and targeting signals before committing real budget, followed by a scaled always-on Android install campaign optimized purely for install volume, letting Google's automated bidding find the highest-intent placements across Search, Display, YouTube, and Discover."],
-      ['Execution', "Fed the campaign a matrix of text, image, and video assets and let Google's asset optimization test combinations automatically, monitored the account's Optimisation Score to keep it near-maximum, and scaled daily budget from ₨3,400 in testing to ₨12,000 once performance validated."],
-      ['Result', "The campaign is still live, running toward a 50,000-install cap — as of the latest report it has delivered 45,538 installs at a blended ₨17.84 cost per install, a 16% CTR, and a 9.32% install conversion rate, holding a 96.69/100 Google Ads Optimisation Score throughout, a sign of a tightly-tuned, efficient account."],
-    ],
-  },
-];
-
 const NUMBERS = [
   ['12+', 'Years of Marketing Experience', ['#e50914', '#4a0408']],
   ['10M+', 'PKR Monthly Ad Spend Managed', ['#f59e0b', '#5a2a02']],
@@ -235,27 +59,6 @@ const CONTACT = [
   { label: 'LinkedIn', value: 'kumailalimirza ↗', href: 'https://www.linkedin.com/in/kumailalimirza', grad: ['#0a66c2', '#06284d'], external: true, icon: 'linkedin' },
 ];
 
-const ABOUT = {
-  big: '12+',
-  kicker: 'Original Series',
-  title: 'The Kumail Ali Mirza Story',
-  meta: ['Performance Marketing Manager', 'Paid Media & Growth', '12+ yrs'],
-  summary:
-    'Performance first. Creative always. Data never optional.',
-  metrics: [
-    ['12+', 'Years in digital marketing'],
-    ['35%', 'Avg. ROAS improvement'],
-    ['25–30%', 'Lower CPC'],
-    ['25K+', 'Conversions delivered'],
-  ],
-  heading: 'Episodes',
-  episodes: [
-    ['Who I Am', "I'm a Performance Marketing Manager with 12+ years in digital and social media marketing — the last 4+ focused on hands-on paid media buying across Meta, Google, TikTok, and LinkedIn. I currently manage PKR 10M+ in monthly ad spend, running campaigns across e-commerce, FMCG, automotive, fitness/apparel, and B2B verticals."],
-    ['How I Work', "My work blends audience segmentation, creative A/B testing, and bid strategy optimization to move the numbers that matter — a 35% average ROAS improvement, 25–30% lower CPC, and 25,000+ conversions delivered across client portfolios. I've also run paid media for international clients across the UAE and North America, and built and led performance marketing teams along the way."],
-  ],
-  grad: ['#e50914', '#2a0306'],
-};
-
 /* =========================================================
    Helpers
    ========================================================= */
@@ -275,20 +78,28 @@ function smileSvg() {
 /* =========================================================
    Render rows
    ========================================================= */
+const caseArticles = () => $$('#caseList article.case');
+const splitList = (v) => (v ? v.split(',').map((x) => x.trim()).filter(Boolean) : []);
+
 function renderCases() {
-  $('#rowCases').innerHTML = CASES.map((c, i) => `
-    <button class="card card-case" data-case="${c.id}" style="--g:${gradient(c.grad)}" aria-label="Open case study: ${esc(c.name)}">
-      ${brandSvg(c.logo, 'brand-ghost')}
+  $('#rowCases').innerHTML = caseArticles().map((a) => {
+    const d = a.dataset;
+    const logos = splitList(d.logos);
+    const kicker = $('.case-kicker', a).textContent;
+    return `
+    <button class="card card-case" data-case="${esc(a.id)}" style="--g:linear-gradient(135deg, ${d.grad.split(',').join(', ')})" aria-label="Open case study: ${esc(d.card)}">
+      ${logos[0] ? brandSvg(logos[0], 'brand-ghost') : ''}
       <span class="card-k">K</span>
-      <span class="card-big">${esc(c.big)}</span>
-      <span class="card-biglabel">${esc(c.bigLabel)}</span>
-      <span class="card-name">${esc(c.name)}</span>
+      <span class="card-big">${esc(d.big)}</span>
+      <span class="card-biglabel">${esc(d.biglabel)}</span>
+      <span class="card-name">${esc(d.card)}</span>
       <span class="card-hover">
         <span class="card-play"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg></span>
-        <span class="card-hover-tag">${esc(c.tag)}</span>
-        <span class="card-hover-line">${esc(c.headline)}</span>
+        <span class="card-hover-tag">${esc(kicker)}</span>
+        <span class="card-hover-line">${esc(d.hover)}</span>
       </span>
-    </button>`).join('');
+    </button>`;
+  }).join('');
 }
 
 function renderNumbers() {
@@ -439,39 +250,37 @@ window.addEventListener('scroll', heroScroll, { passive: true });
 const modal = $('#modal');
 let lastFocus = null;
 
-function openModal(item, fromEl) {
-  $('#mBanner').style.setProperty('--g', gradient(item.grad));
-  $('#mBigNum').textContent = item.big;
-  $('#mLogo').innerHTML = (item.logos || (item.logo ? [item.logo] : [])).map((l) => brandSvg(l, 'banner-logo')).join('');
-  $('#mKicker').textContent = item.kicker || item.tag;
-  $('#mTitle').textContent = item.title || item.name;
-  $('#mMeta').innerHTML = (item.meta || [item.year, item.category])
-    .map((m, i) => (i === 0 && !item.meta ? `<b>${esc(m)}</b>` : `<span>${esc(m)}</span>`))
-    .join('');
-  $('#mSummary').textContent = item.summary;
-  $('#mSide').innerHTML = item.metrics
-    .map(([v, l]) => `<div class="m-stat"><strong>${esc(v)}</strong><span>${esc(l)}</span></div>`)
-    .join('');
-  const barsWrap = $('#mBarsWrap');
-  barsWrap.hidden = !item.bars;
-  if (item.bars) {
-    const max = Math.max(...item.bars.map((b) => b[1]));
-    $('#mBarsHeading').textContent = item.barsHeading;
-    $('#mBarsNote').textContent = item.barsNote;
-    $('#mBars').innerHTML = item.bars.map(([label, v, spend], i) => `
-      <li style="--w:${(v / max * 100).toFixed(1)}%; --i:${i}">
-        <span class="bar-label">${esc(label)}</span>
-        <span class="bar-track"><span class="bar-fill"></span></span>
-        <span class="bar-val"><strong>${v.toFixed(1)}x</strong><em>${esc(spend)}</em></span>
-      </li>`).join('');
-  }
-  $('#mEpHeading').textContent = item.heading || 'The Story';
-  $('#mEpisodes').innerHTML = item.episodes
-    .map(([t, p], i) => `
-      <li>
-        <span class="ep-num">${i + 1}</span>
-        <div><h4>${esc(t)}</h4><p>${esc(p)}</p></div>
-      </li>`).join('');
+/* Turn each .bars list into bars: width is relative to the best campaign in that list. */
+function decorateBars(root) {
+  $$('.bars', root).forEach((ol) => {
+    const items = $$('li', ol);
+    const max = Math.max(...items.map((li) => parseFloat(li.dataset.v) || 0));
+    items.forEach((li, i) => {
+      if ($('.b-track', li)) return;
+      li.style.setProperty('--w', ((parseFloat(li.dataset.v) / max) * 100).toFixed(1) + '%');
+      li.style.setProperty('--i', i);
+      const track = document.createElement('span');
+      track.className = 'b-track';
+      track.innerHTML = '<span class="b-fill"></span>';
+      li.insertBefore(track, $('.b-val', li));
+    });
+  });
+}
+
+function openModal(article, fromEl) {
+  const d = article.dataset;
+  $('#mBanner').style.setProperty('--g', `linear-gradient(135deg, ${d.grad.split(',').join(', ')})`);
+  $('#mBigNum').textContent = d.big;
+  $('#mLogo').innerHTML = splitList(d.logos).map((l) => brandSvg(l, 'banner-logo')).join('');
+  $('#mKicker').textContent = $('.case-kicker', article).textContent;
+  $('#mTitle').textContent = d.card || $('.case-title', article).textContent;
+
+  // The pop-up shows the same article as the résumé view; the banner already carries the kicker.
+  const clone = article.cloneNode(true);
+  clone.removeAttribute('id');
+  $$('.case-kicker', clone).forEach((el) => el.remove());
+  $('#mContent').replaceChildren(clone);
+  decorateBars(clone);
 
   lastFocus = document.activeElement;
   modal.hidden = false;
@@ -519,6 +328,7 @@ document.addEventListener('keydown', (e) => {
    ========================================================= */
 const gate = $('#gate');
 const app = $('#app');
+app.inert = true; // the gate owns focus until a profile is chosen
 const GREETINGS = {
   'Kumail Ali Mirza': 'Welcome back, Kumail',
 };
@@ -533,7 +343,7 @@ $$('.profile').forEach((btn) => {
   btn.addEventListener('click', () => enter(btn));
 });
 
-function enter(btn) {
+function enter(btn, jumpTo) {
   const who = btn.dataset.who;
   const color = btn.dataset.color;
   $('#greeting').textContent = GREETINGS[who] || 'Welcome';
@@ -547,12 +357,16 @@ function enter(btn) {
   const reveal = () => {
     document.body.classList.remove('is-gate');
     gate.hidden = true;
-    app.removeAttribute('aria-hidden');
+    app.inert = false;
     window.scrollTo(0, 0);
     app.classList.add('in');
     refreshRows();
     initReveal();
     heroScroll();
+    if (jumpTo) {
+      const t = $(jumpTo);
+      if (t) window.scrollTo(0, t.getBoundingClientRect().top + window.scrollY - 70);
+    }
     $('#playFeatured').focus({ preventScroll: true });
   };
   if (reduceMotion) { reveal(); return; }
@@ -569,11 +383,16 @@ function enter(btn) {
   }, 600);
 }
 
+$('#gateResume').addEventListener('click', (e) => {
+  e.preventDefault();
+  enter($('.profile'), '#resume');
+});
+
 $('#switchProfile').addEventListener('click', () => {
   closeModal();
   app.classList.remove('in');
   $$('.row').forEach((r) => r.classList.remove('seen'));
-  app.setAttribute('aria-hidden', 'true');
+  app.inert = true;
   gate.hidden = false;
   gate.classList.remove('leaving');
   $$('.profile.chosen').forEach((b) => b.classList.remove('chosen'));
@@ -586,6 +405,7 @@ $('#switchProfile').addEventListener('click', () => {
    Wiring
    ========================================================= */
 renderCases();
+decorateBars(document);
 renderNumbers();
 renderTiles('#rowChannels', CHANNELS);
 renderTiles('#rowStrategy', STRATEGY);
@@ -597,10 +417,10 @@ $('#year').textContent = new Date().getFullYear();
 
 document.addEventListener('click', (e) => {
   const card = e.target.closest('[data-case]');
-  if (card && !dragMoved) openModal(CASES.find((c) => c.id === card.dataset.case), card);
+  if (card && !dragMoved) openModal(document.getElementById(card.dataset.case), card);
 });
-$('#playFeatured').addEventListener('click', (e) => openModal(CASES.find((c) => c.id === 'apparel'), e.currentTarget));
-$('#openAbout').addEventListener('click', (e) => openModal(ABOUT, e.currentTarget));
+$('#playFeatured').addEventListener('click', (e) => openModal(document.getElementById('case-apparel'), e.currentTarget));
+$('#openAbout').addEventListener('click', (e) => openModal(document.getElementById('profile'), e.currentTarget));
 
 /* Smooth scroll with nav offset */
 $$('[data-scroll]').forEach((a) => {
