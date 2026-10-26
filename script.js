@@ -331,7 +331,7 @@ const gate = $('#gate');
 const app = $('#app');
 app.inert = true; // the gate owns focus until a profile is chosen
 const GREETINGS = {
-  'Kumail Ali Mirza': 'Welcome back, Kumail',
+  Recruiter: 'Welcome, Recruiter',
 };
 
 $$('.profile').forEach((btn) => {
